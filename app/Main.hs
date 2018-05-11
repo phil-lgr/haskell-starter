@@ -1,6 +1,15 @@
-module Main (main) where
+module Main where
 
-import Lib
+import Exercice2Half(Exp (Evar), Exp (Ecall), Exp (Enum))
 
-main :: IO ()
-main = someFunc
+dosomething a = a
+
+main = do
+    let languageVar = Evar "X"
+    print languageVar
+
+    let languageConstant = Enum 123123
+    print languageConstant
+
+    let languageExpressionCall = Ecall languageConstant languageVar
+    print languageExpressionCall
